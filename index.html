@@ -1,54 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-     <title>Title Goes Here</title>
-  <meta charset="utf-8" />
-  <meta name="robots" content="noindex,nofollow" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/nav.css" />
-  <script src="js/main.js"></script>  
- </head>
- <body>
+    <head>
+     <title>DOM Play</title>
+        <meta charset="utf-8" />
+        <meta name="robots" content="noindex,nofollow" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/nav.css" />
+        <style>
+          /*
+         span.hamlet {
+            background-color: yellow;
+        }
+         </style>
+    */
+ 
+    </head>
+    <body>
      <header>
-     <h1>Title Goes Here</h1>
-        <nav class="topnav" id="myTopnav">
-            <a href="index.html" class="active">Home</a>
-            <a href="#" target="_blank">Name of project goes here</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-        </nav>
+      <h1>DOM Play</h1>
      </header>
      
-   <main class="wrapper">
-  
-       <h2 class="subheader">Title Goes Here</h2>
-        <p>Content goes here</p>
-     <footer>
-      <p><small>&copy; 2021 by 
-          YOUR NAME HERE, All Rights Reserved ~ 
+ <main class="wrapper">
+  <div id="play">
+        <p><span data-actor="hamlet"> Hamlet: To be or not to be?</span></p>
+        <p><span data-actor="skull"> Skull: Are you talking to me?</span></p>
+        <p><span data-actor="hamlet"> Hamlet: Do you say something?</span></p>
+        <p><span data-actor="skull"> Skull: No, I'm only a skull.</span></p>
+        <p><span data-actor="hamlet"> Hamlet: Good! I thought I was going crazy!</span></p>
+        <p><span data-actor="romeo"> Romeo: What I am doing here?</span></p>
+      </div>
+         <footer>
+      <p><small>&copy; 2022 by 
+          Helen Fessahaie, All Rights Reserved ~ 
           <a id="html-checker" href="#">Check HTML</a> ~ 
           <a id="css-checker" href="#">Check CSS</a></small>
      </p>
     </footer>
   </main>
-     
-  <!-- Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon -->
-    <script>
-    //https://tinyurl.com/dynamic-html-checker
-    document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
-      
-    document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);  
-    
-    //manages mobile nav 
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
+  <script>
+
+     const spans = document.querySelectorAll('div#play span');
+
+     console.log(spans);
+
+        for(const mySpan of spans){
+            
+            mySpan.addEventListener('click',function(ev){
+                //alert(mySpan.dataset.actor);
+                highlightActor(mySpan.dataset.actor);
+            });
         }
-    }   
- </script>
-     
+
+        function highlightActor(myActor){
+
+            for(const mySpan of spans){
+
+                if(myActor == "mySpan.dataset.actor"){
+                    mySpan.style.backgroundColor ='yellow';
+                }else{
+                    mySpan.style.backgroundColor='white';
+                }
+            
+
+
+        }
+
+        
+      
+
+
+
+
+
+
+     //docment.querySelector('span.hamlet').style.backgroundColor = "yellow";
+    </script>
+    <script> src = "js/main.js"</script>  
  </body>
 </html>
